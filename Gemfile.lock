@@ -66,7 +66,6 @@ GEM
       rack-protection (= 2.0.8.1)
       sinatra (= 2.0.8.1)
       tilt (~> 2.0)
-    sqlite3 (1.4.2)
     thread_safe (0.3.6)
     tilt (2.0.10)
     tzinfo (1.2.5)
@@ -83,7 +82,6 @@ DEPENDENCIES
   rspec
   sinatra
   sinatra-contrib
-  sqlite3
 
 BUNDLED WITH
    2.1.4
