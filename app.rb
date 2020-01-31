@@ -3,5 +3,6 @@
 require 'sinatra'
 
 get '/' do
-  'hello world'
+  @message = 'Hello Megan!'
+  erb :home
 end

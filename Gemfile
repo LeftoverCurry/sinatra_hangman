@@ -4,7 +4,9 @@ source 'https://rubygems.org'
 
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
+gem 'activerecord'
 gem 'sinatra'
+gem 'sqlite3'
 
 group :development do
   gem 'rerun'
@@ -12,6 +14,8 @@ group :development do
 end
 
 group :testing do
-  gem 'rspec'
   gem 'pry'
+  gem 'rspec'
 end
+
+# gem "rails"
