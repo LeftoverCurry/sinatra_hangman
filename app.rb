@@ -1,8 +1,11 @@
 # frozen_string_literal: true
 
 require 'sinatra'
+require 'sinatra/activerecord'
 
-get '/' do
-  @message = 'Hello Megan!'
-  erb :home
+class App < Sinatra::Base
+  get '/' do
+    @message = 'Hello Megan!'
+    erb :home
+  end
 end
