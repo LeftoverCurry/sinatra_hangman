@@ -3,8 +3,7 @@ development:
   encoding: unicode
   database: user_info
   pool: 2
-  username: your_username
-  password: your_password
+
 
 production:
   adapter: postgresql
