@@ -10,11 +10,12 @@ gem 'pg'
 gem 'sinatra'
 gem 'rake'
 
-
-
 group :development do
+  gem 'htmlbeautifier'
   gem 'rerun'
+  gem 'rubocop'
   gem 'sinatra-contrib'
+  gem 'solargraph'
 end
 
 group :development, :testing do

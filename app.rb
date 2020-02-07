@@ -5,6 +5,6 @@ require 'sinatra/activerecord'
 require 'sinatra/base'
 
 get '/' do
-  @message = 'Hello Megan!'
+  @message = 'testing'
   erb :home
 end
