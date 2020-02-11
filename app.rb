@@ -4,18 +4,21 @@ require 'sinatra'
 require 'sinatra/activerecord'
 require 'sinatra/base'
 require 'pry'
+enable :sessions
 
 # Explicitly declares root file path so testing will search for the erb in the correct folder, instead of in /spec.
 set :root, File.dirname(__FILE__)
 # form for user name
 get '/' do
-  @message = 'testing'
+  @message = session[:user_name]
   erb :home
 end
 
 # Pulls user name and varifies or sets up new game, redirects to /game passing
 # parameters
 post '/' do
+  session[:user_name] = params[:user_name]
+  redirect '/'
 end
 
 # Displays letters guessed, hangman, missing letters, and correctly
