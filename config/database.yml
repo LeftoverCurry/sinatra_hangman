@@ -1,8 +1,11 @@
-development:
+default: &default
   adapter: postgresql
   encoding: unicode
-  database: user_info
-  pool: 2
+  pool: 5
+
+development:
+  <<: *default
+  database: my_app_development
 
 
 production:
