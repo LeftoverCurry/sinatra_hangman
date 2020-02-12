@@ -3,11 +3,12 @@
 require 'rack/test'
 require 'rspec'
 require 'sinatra'
-
-ENV['RACK_ENV'] = 'test'
-
+require 'capybara'
+require 'capybara/dsl'
 require File.expand_path '../app.rb', __dir__
 require './config/environment.rb'
+
+ENV['RACK_ENV'] = 'test'
 
 module RSpecMixin
   include Rack::Test::Methods
@@ -15,6 +16,10 @@ module RSpecMixin
   def app
     Sinatra::Application
   end
+end
+
+def session
+  last_request.env['rack.session']
 end
 
 RSpec.configure do |c|
@@ -29,4 +34,12 @@ RSpec.configure do |c|
   end
 
   c.shared_context_metadata_behavior = :apply_to_host_groups
+
+  c.include Capybara::DSL
+end
+
+Capybara.configure do |config|
+  Capybara.app = Sinatra::Application
+  config.run_server = false
+  config.always_include_port = true
 end
