@@ -18,6 +18,10 @@ module RSpecMixin
   end
 end
 
+def session
+  last_request.env['rack.session']
+end
+
 RSpec.configure do |c|
   c.include RSpecMixin
 

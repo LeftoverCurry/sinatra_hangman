@@ -2,18 +2,29 @@
 
 require './spec/spec_helper.rb'
 
-describe 'application controllers' do
+describe 'GET root' do
   it 'should allow accessing the home page' do
     get '/'
     visit('/')
   end
 
-  it 'should pass the correct text into the body' do
+  it 'should display correctly' do
     get '/'
-    @message = 'testing'
-    expect(last_response.body).to include('testing')
+    expect(last_response.body).to include('Welcome to Hangman!')
+  end
+end
+
+describe 'POST root' do
+  before do
+    post '/', user_name: 'testing'
   end
 
-  it 'should pass a user name back to the server' do
+  it 'reads the param user_name and sets the session correctly' do
+    expect(session['user_name']).to eq('testing')
+  end
+
+  it 'redirects to /game' do
+    post '/'
+    expect(last_response.status).to eq(302)
   end
 end
