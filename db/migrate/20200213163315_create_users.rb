@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
-class CreateUserInfo < ActiveRecord::Migration[6.0]
+# Creates the Users DB for saved game storage
+class CreateUsers < ActiveRecord::Migration[6.0]
   def change
-    create_table :user_info do |t|
+    create_table :users do |t|
       t.string :user_name
       t.string :chosen_letters, array: true
       t.integer :guesses_remaining
