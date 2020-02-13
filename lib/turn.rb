@@ -11,11 +11,10 @@ class Turn
   # Input allows us to sub for user input, and the test condition allows us to
   # prevent recursion without user input.
 
-  def initialize(game_data, input = false, test_cond = false)
+  def initialize(game_data, _input = false, test_cond = false)
     @test_cond = test_cond
     @game_data = game_data
     @display = show_display
-    @input = user_response(input)
     check_for_valid_response(@input)
   end
 
@@ -31,31 +30,6 @@ class Turn
     else
       input
     end
-  end
-
-  # Checks #user_response for a valid response or allows the player to
-  # save and exit
-  def check_for_valid_response(resp)
-    if resp == 'exit!'
-      game_data.save
-    elsif game_data.chosen_letters.include?(resp)
-      repeat_response_query('repeat')
-    elsif resp.length > 1
-      repeat_response_query('multiple')
-    else
-      action(resp)
-    end
-  end
-
-  # gives responses for failed conditions on user input
-  def repeat_response_query(condition)
-    if condition == 'repeat'
-      puts 'You already chose that letter! Please choose another one:'
-    elsif condition == 'multiple'
-      puts 'Please only enter one letter!'
-    end
-    @input = user_response(false)
-    check_for_valid_response(@input)
   end
 
   # Increments the number of guesses remaining or removes a letter from the list
