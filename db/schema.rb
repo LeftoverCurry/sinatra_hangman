@@ -10,17 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_05_183022) do
+ActiveRecord::Schema.define(version: 2020_02_13_163315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "user_info", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "user_name"
-    t.string "chosen_letters", array: true
-    t.integer "guesses_remaining"
-    t.string "letters_left_to_guess", array: true
-    t.string "randomly_picked_word", array: true
+    t.string "chosen_letters", default: [], array: true
+    t.integer "guesses_remaining", default: 5
+    t.string "letters_left_to_guess", default: [], array: true
+    t.string "randomly_picked_word", default: [], array: true
   end
 
 end

@@ -5,13 +5,11 @@ default: &default
 
 development:
   <<: *default
-  database: my_app_development
+  database: hangman_development
 
 
 production:
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
+  <<: *default
   host: <%= ENV['DATABASE_HOST'] %>
   database: <%= ENV['DATABASE_NAME'] %>
   username: <%= ENV['DATABASE_USER'] %>
