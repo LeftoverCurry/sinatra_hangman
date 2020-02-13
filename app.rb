@@ -4,6 +4,8 @@ require 'sinatra'
 require 'sinatra/activerecord'
 require 'sinatra/base'
 require 'pry'
+require './models/user.rb'
+require './lib/user_exists.rb'
 enable :sessions
 
 # Explicitly declares root file path so testing will search for the erb in the
@@ -18,7 +20,8 @@ end
 # Pulls user name and varifies or sets up new game, redirects to /game passing
 # parameters
 post '/' do
-  session[:user_name] = params[:user_name]
+  user_name = params[:user_name]
+  session[:data] = pull_or_create(user_name)
   redirect '/game'
 end
 
@@ -26,7 +29,8 @@ end
 # guessed letters
 
 get '/game' do
-  @user_name = session[:user_name]
+  data = session[:data]
+  @user_name = data.user_name
   erb :game
 end
 
