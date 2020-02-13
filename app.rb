@@ -30,6 +30,8 @@ end
 # guessed letters and form for letter entry
 
 get '/game' do
+  data = session[:data]
+  @user_name = data.user_name
   @correctly_picked = show_correctly_picked(session[:data])
   erb :game
 end
