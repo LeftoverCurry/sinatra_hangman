@@ -19,8 +19,10 @@ end
 
 group :development, :test do
   gem 'capybara'
+  gem 'htmlbeautifier'
   gem 'pry'
   gem 'rack-test'
   gem 'rspec'
   gem 'selenium-webdriver'
+  gem 'solargraph'
 end
