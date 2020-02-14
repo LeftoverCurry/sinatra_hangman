@@ -18,15 +18,15 @@ class Display
   def hangman_image(game_data)
     case game_data.guesses_remaining
     when 5
-      File.read('./lib/assets/five_remaining.txt')
+      'images/5_remaining.png'
     when 4
-      File.read('./lib/assets/four_remaining.txt')
+      'images/4_remaining.png'
     when 3
-      File.read('./lib/assets/three_remaining.txt')
+      'images/3_remaining.png'
     when 2
-      File.read('./lib/assets/two_remaining.txt')
+      'images/2_remaining.png'
     when 1
-      File.read('./lib/assets/one_remaining.txt')
+      'images/1_remaining.png'
     end
   end
 
