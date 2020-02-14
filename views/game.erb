@@ -5,3 +5,8 @@
 <img src=<%= @show_hangman_image %>>
 <h2> <%= @show_correctly_picked %></h2>
 <h2> <%= @show_letter_choices %></h2>
+<p> Please enter a guess:</p>
+<form action='/game' method='POST'>
+  <input type='text' name='guess'>
+  <input type='submit'>
+</form>
