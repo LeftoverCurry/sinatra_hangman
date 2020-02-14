@@ -7,6 +7,7 @@ require 'sinatra/base'
 require './models/user.rb'
 require './lib/user_exists.rb'
 require './lib/build_display.rb'
+require './lib/process_turn.rb'
 enable :sessions
 
 # Explicitly declares root file path so testing will search for the erb in the
@@ -41,6 +42,24 @@ end
 
 # Determines if game was won and if not adjusts DB entry for current user
 post '/game' do
-  session[:message] = @user_name
-  redirect '/game'
+  @guess = params[:guess].downcase
+  @user_name = session[:game_data].user_name
+  turn = Turn.new(session[:game_data], @guess)
+
+  game_data = session[:game_data]
+  if game_data.guesses_remaining <= 0
+    redirect '/lose'
+  elsif game_data.letters_left_to_guess == []
+    redirect '/win'
+  else
+    redirect '/game'
+  end
+end
+
+get '/win' do
+  erb :win
+end
+
+get '/lose' do
+  erb :lose
 end
