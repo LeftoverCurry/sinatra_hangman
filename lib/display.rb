@@ -42,8 +42,4 @@ class Display
     display_array.join
   end
 
-  # Shows all off the letters the player has chosen
-  def show_letter_choices(game_data)
-    "USED LETTERS: #{game_data.chosen_letters}"
-  end
-end
+ 

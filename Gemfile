@@ -12,11 +12,9 @@ gem 'sinatra'
 gem 'sinatra-activerecord'
 
 group :development do
-  gem 'htmlbeautifier'
   gem 'rerun'
   gem 'rubocop'
   gem 'sinatra-contrib'
-  gem 'solargraph'
 end
 
 group :development, :test do

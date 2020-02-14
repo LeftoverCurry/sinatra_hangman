@@ -6,7 +6,7 @@ require 'sinatra/base'
 # require 'pry'
 require './models/user.rb'
 require './lib/user_exists.rb'
-require './lib/build_variables.rb'
+require './lib/build_display.rb'
 enable :sessions
 
 # Explicitly declares root file path so testing will search for the erb in the
@@ -22,7 +22,7 @@ end
 # parameters
 post '/' do
   user_name = params[:user_name]
-  session[:data] = pull_or_create(user_name)
+  session[:game_data] = pull_or_create(user_name)
   redirect '/game'
 end
 
@@ -30,9 +30,12 @@ end
 # guessed letters and form for letter entry
 
 get '/game' do
-  data = session[:data]
-  @user_name = data.user_name
-  @correctly_picked = show_correctly_picked(session[:data])
+  game_data = session[:game_data]
+  display = Display.new(game_data)
+  @user_name = game_data.user_name.capitalize
+  @show_hangman_image = display.show_hangman_image
+  @show_correctly_picked = display.show_correctly_picked
+  @show_letter_choices = display.show_letter_choices
   erb :game
 end
 

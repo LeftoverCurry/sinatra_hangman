@@ -10,7 +10,7 @@ development:
 
 production:
   <<: *default
-  host: <%= ENV['DATABASE_HOST'] %>
-  database: <%= ENV['DATABASE_NAME'] %>
-  username: <%= ENV['DATABASE_USER'] %>
-  password: <%= ENV['DATABASE_PASSWORD'] %>
+  host: <%= ENV['ec2-23-21-13-88.compute-1.amazonaws.com'] %>
+  database: <%= ENV['d373saji797ipt'] %>
+  username: <%= ENV['xmrhioyeznlekd'] %>
+  password: <%= ENV['6f7247ebb5987ef7afd956b03b6b0ab199eeb494c0e325e35644f41d521a57c5'] %>
