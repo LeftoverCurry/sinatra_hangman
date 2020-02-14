@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'pry'
 class Turn
   attr_accessor :guess
   attr_accessor :game_data
