@@ -44,7 +44,7 @@ end
 post '/game' do
   @guess = params[:guess].downcase
   @user_name = session[:game_data].user_name
-  turn = Turn.new(session[:game_data], @guess)
+  Turn.new(session[:game_data], @guess)
 
   game_data = session[:game_data]
   if game_data.guesses_remaining <= 0

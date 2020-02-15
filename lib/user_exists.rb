@@ -7,7 +7,8 @@ def pull_or_create(user_name)
     # pick magic word
     magic_word = create_magic_word
     # create new user passing in name and magic word
-    User.create(user_name: user_name, randomly_picked_word: magic_word, letters_left_to_guess: magic_word)
+    User.create(user_name: user_name, randomly_picked_word: magic_word,
+                letters_left_to_guess: magic_word)
   end
 end
 

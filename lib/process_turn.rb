@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Processes a turn by the user
 class Turn
   attr_accessor :guess
   attr_accessor :game_data
