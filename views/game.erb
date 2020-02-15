@@ -5,8 +5,8 @@
 <img src=<%= @show_hangman_image %>>
 <h2> <%= @show_correctly_picked %></h2>
 <h2> <%= @show_letter_choices %></h2>
-<p> Please enter a guess:</p>
 <form action='/game' method='POST'>
-  <input type='text' name='guess'>
+  <label for='letter_input'>Please enter a letter!</label>
+  <input id='letter_input' type='text' name='guess'pattern="[A-Za-z]{1}" maxlength="1" required>
   <input type='submit'>
 </form>
