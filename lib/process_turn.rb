@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# require 'pry'
 # Processes a turn by the user
 class Turn
   attr_accessor :guess
@@ -31,8 +32,10 @@ class Turn
   def edit_letters_left(guess)
     return unless @game_data.letters_left_to_guess.include?(guess)
 
-    new_data = game_data.letters_left_to_guess.delete(guess)
+    game_data.letters_left_to_guess.delete(guess)
+    new_data = game_data.letters_left_to_guess
     user = User.find_by(user_name: @game_data.user_name)
+
     user.update(letters_left_to_guess: new_data)
   end
 end
