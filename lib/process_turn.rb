@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# require 'pry'
 # Processes a turn by the user
 class Turn
   attr_accessor :guess

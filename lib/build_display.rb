@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'pry'
 # builds display for view
 class Display
   attr_accessor :show_hangman_image
