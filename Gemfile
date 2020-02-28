@@ -10,6 +10,7 @@ gem 'pg'
 gem 'rake'
 gem 'sinatra'
 gem 'sinatra-activerecord'
+gem 'nokogiri', '>= 1.10.8'
 
 group :development do
   gem 'rerun'
