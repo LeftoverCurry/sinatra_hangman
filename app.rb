@@ -3,7 +3,6 @@
 require 'sinatra'
 require 'sinatra/activerecord'
 require 'sinatra/base'
-require 'pry'
 require './models/user.rb'
 require './lib/user_exists.rb'
 require './lib/build_display.rb'
